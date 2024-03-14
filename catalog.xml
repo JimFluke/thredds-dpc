@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog name="THREDDS DPC Data Distribution Demo Catalog"
+         xmlns="http://www.unidata.ucar.edu/namespaces/thredds/InvCatalog/v1.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.unidata.ucar.edu/namespaces/thredds/InvCatalog/v1.0
+           https://schemas.unidata.ucar.edu/thredds/InvCatalog.1.0.6.xsd">
+  
+  <service name="all" base="" serviceType="compound">
+    <service name="odap" serviceType="OpenDAP" base="/thredds/dodsC/"/>
+    <service name="http" serviceType="HTTPServer" base="/thredds/fileServer/"/>
+  </service>
+
+  <!-- <dataset name="CloudSat" serviceName="odap" urlPath="content" /> -->
+
+  <!-- <datasetRoot path="operations" location="/usr/local/cloudsat-data/" /> -->
+
+  <datasetScan name="CloudSat Data" ID="CloudSatDatasetScan"
+               path="cloudsat-data" location="/usr/local/cloudsat-data/" >
+    <metadata inherited="true">
+      <serviceName>all</serviceName>
+    </metadata>
+  </datasetScan>
+
+  <!--catalogRef xlink:title="Test Enhanced Catalog" xlink:href="enhancedCatalog.xml" name=""/-->
+</catalog>

@@ -1,0 +1,21 @@
+version: "3"
+
+# Run this with 'docker-compose run --rm test_opendap'
+services:
+  test_opendap:
+    container_name: test_opendap
+
+    build: .
+
+    # Required if connecting to a TDS on the same host
+    network_mode: "host"
+
+    volumes:
+      - ./:/app
+
+    environment:
+      - OPENDAP_SERVER=localhost
+      - OPENDAP_PORT=7000
+
+    #entrypoint: /bin/bash
+    #command: /app/run_test

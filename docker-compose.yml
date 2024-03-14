@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  thredds-production:
+    image: unidata/thredds-docker:5.4
+    #image: thredds-docker:latest
+    ports:
+      - "7000:8080"
+      - "443:8443"
+      - "8443:8443"
+    container_name: thredds
+    volumes:
+      - ${TDS_MOUNTS_BASE}/tomcat/logs/:/usr/local/tomcat/logs/
+      - ${TDS_MOUNTS_BASE}/thredds/logs/:/usr/local/tomcat/content/thredds/logs/
+      - ./tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+      - ${TDS_MOUNTS_BASE}/thredds/directory:/usr/local/tomcat/content/thredds
+      - ${TDS_CS_DATA_DIR}:/usr/local/cloudsat-data:ro
+      - ./catalog.xml:/usr/local/tomcat/content/thredds/catalog.xml
+      - ./threddsConfig.xml:/usr/local/tomcat/content/thredds/threddsConfig.xml
+      - ./cloudsat-icon.png:/usr/local/tomcat/webapps/thredds/cloudsat-icon.png
+    env_file:
+      - .env
+      - compose.env
