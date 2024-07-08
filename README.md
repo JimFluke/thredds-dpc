@@ -23,10 +23,10 @@ On a test machine that has Docker installed:
    /home/cloudsat/thredds-data on node1, /mnt/data1/fluke/data/CSdata
    on node2.
 1. Extract the sample data files from the compressed tar file:
-    ```
-    cd <to the new test data directory>
-    tar -xzvf <your thredds-dpc project dir>/sample-data.tgz
-    ```
+   ```
+   cd <to the new test data directory>
+   tar -xzvf <your thredds-dpc project dir>/sample-data.tgz
+   ```
 1. Copy dev.env to .env and fill in the environment variable settings:
    ```
    TDS_MOUNTS_BASE=<directory created in step 2>
@@ -34,7 +34,14 @@ On a test machine that has Docker installed:
    TOMCAT_USER_ID=<The user ID of the project dir owner>
    TOMCAT_GROUP_ID=<The group ID of the project dir owner>
    ```
-1. Start the server with `docker-compose up -d thredds-production`
+1. Start the server with:
+   ```
+   docker-compose up -d thredds-production
+   ```
+   Bring it down with:
+   ```
+   docker-compose stop thredds-production
+   ```
 
 ## Connecting to the CloudSat TDS from a browser
 ### If you have it running on your localhost, use:

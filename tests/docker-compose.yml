@@ -1,5 +1,3 @@
-version: "3"
-
 # Run this with 'docker-compose run --rm test_opendap'
 services:
   test_opendap:

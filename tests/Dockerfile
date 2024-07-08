@@ -2,7 +2,7 @@ FROM continuumio/miniconda3:latest
 
 RUN apt-get update
 
-RUN conda install -y -c conda-forge numpy pydap
+RUN conda install -y -c conda-forge numpy=1.26.4 pydap
 
 ARG UNAME=test_opendap
 ARG UID=1000

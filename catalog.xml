@@ -16,7 +16,7 @@
   <!-- <datasetRoot path="operations" location="/usr/local/cloudsat-data/" /> -->
 
   <datasetScan name="CloudSat Data" ID="CloudSatDatasetScan"
-               path="cloudsat-data" location="/usr/local/cloudsat-data/" >
+               path="cloudsat-data" location="/usr/local/cloudsat-data/" restrictAccess="DPCData">
     <metadata inherited="true">
       <serviceName>all</serviceName>
     </metadata>

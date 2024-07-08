@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   thredds-production:
     image: unidata/thredds-docker:5.4
